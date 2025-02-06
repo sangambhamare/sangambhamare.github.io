@@ -54,6 +54,18 @@ header nav ul li a:hover {
   padding-top: 60px; /* Offset for fixed nav */
 }
 
+.hero-content {
+  max-width: 600px;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 10px;
@@ -119,6 +131,13 @@ h3 {
 ul {
   list-style: disc;
   margin-left: 20px;
+}
+
+/* Date styling for certifications */
+.date {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 10px;
 }
 
 /* Footer */
