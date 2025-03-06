@@ -2,225 +2,1024 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sangam Sanjay Bhamare - Data Science Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SANGAM SANJAY BHAMARE - Portfolio</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Video Background */
+    #video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -2;
+      object-fit: cover;
+    }
+    /* Card container for sections */
+    .card {
+      background: rgba(10, 14, 23, 0.85);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      margin: 2rem auto;
+      max-width: 1200px;
+    }
+    /* General Reset & Font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0A0E17;
+      color: #FFFFFF;
+      line-height: 1.6;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: transparent;
+      position: relative;
+      z-index: 2;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #00c9b1;
+    }
+    .btn-cv {
+      padding: 0.6rem 1.2rem;
+      background: #00c9b1;
+      color: #0A0E17;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .btn-cv:hover {
+      background: #00ab97;
+      color: #fff;
+    }
+    /* Hamburger for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      border-radius: 3px;
+    }
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 3rem 2rem;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-content {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+      margin-right: 2rem;
+    }
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero-content h1 span {
+      color: #00c9b1;
+    }
+    .sub-text {
+      margin: 0.5rem 0 1rem;
+      color: #ccc;
+    }
+    .contact-info {
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+    .contact-info a {
+      color: #00c9b1;
+      text-decoration: none;
+    }
+    .hero-buttons a {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .btn-primary {
+      background-color: #00c9b1;
+    }
+    .btn-primary:hover {
+      background-color: #00ab97;
+      transform: scale(1.05);
+    }
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid #00c9b1;
+    }
+    .btn-secondary:hover {
+      background-color: #00c9b1;
+      color: #0A0E17;
+      transform: scale(1.05);
+    }
+    .hero-image {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    /* Profile Image Outer Circle with Matching Color */
+    .image-bg {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      background: #00c9b1;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .image-bg img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    /* Stats Section */
+    .stats-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid #2c2c2c;
+      border-bottom: 1px solid #2c2c2c;
+      margin: 2rem 0;
+    }
+    .stat-box {
+      text-align: center;
+    }
+    .stat-box h2 {
+      font-size: 2rem;
+      color: #00c9b1;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: slideDown 1s forwards;
+    }
+    @keyframes slideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Section Titles - Centered */
+    .about-section h2,
+    .portfolio-section h2,
+    .skills-section h2,
+    .card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00c9b1;
+      text-align: center;
+    }
+    /* Education Container */
+    .education-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+      margin-top: 2rem;
+      display: grid;
+      grid-gap: 2rem;
+    }
+    .education-item h3 {
+      color: #00c9b1;
+      margin-bottom: 0.5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .education-item p {
+      color: #ccc;
+      margin-bottom: 0.5rem;
+    }
+    /* Portfolio/Projects Section */
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .portfolio-card {
+      background: #11151f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+    .portfolio-card:hover {
+      transform: scale(1.03);
+    }
+    .portfolio-card h3 {
+      color: #00c9b1;
+      margin-bottom: 0.5rem;
+    }
+    .portfolio-card p {
+      margin-bottom: 0.5rem;
+      color: #ccc;
+    }
+    .demo-link {
+      color: #00c9b1;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .demo-link:hover {
+      text-decoration: underline;
+    }
+    /* Skills/Modules Section */
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .skill {
+      background: #11151f;
+      padding: 1rem;
+      border-radius: 8px;
+      width: 260px;
+      text-align: left;
+    }
+    .skill h3 {
+      color: #00c9b1;
+      margin-bottom: 0.5rem;
+    }
+    /* Certifications Section - 3-Item Carousel */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 2rem;
+    }
+    .carousel-item {
+      flex: 0 0 350px;
+      text-align: center;
+      background: #11151f;
+      border-radius: 8px;
+      padding: 1rem;
+      transform: scale(1);
+      transition: transform 0.3s;
+    }
+    .carousel-item.active {
+      transform: scale(1.15);
+    }
+    .cert-img {
+      display: block;
+      width: 300px;
+      height: 200px;
+      object-fit: contain;
+      margin: 0.5rem auto;
+    }
+    /* Arrow Buttons for Carousel */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.4);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .carousel-arrow:hover {
+      background: rgba(0,0,0,0.6);
+    }
+    .carousel-arrow.left {
+      left: 10px;
+    }
+    .carousel-arrow.right {
+      right: 10px;
+    }
+    /* Publications Section */
+    /* (Using Education Container styles) */
+    /* Contact Section */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      background: #11151f;
+      border: 1px solid #2c2c2c;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #00c9b1;
+    }
+    .contact-form button {
+      width: 150px;
+      align-self: center;
+    }
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 1rem;
+      background: #0A0E17;
+      border-top: 1px solid #2c2c2c;
+    }
+    .footer p {
+      color: #666;
+      font-size: 0.9rem;
+    }
+    /* Media Queries for Mobile Responsiveness */
+    @media screen and (max-width: 768px) {
+      /* Hide video background on mobile */
+      #video-background {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 14, 23, 0.9);
+        flex-direction: column;
+        align-items: center;
+        display: none;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links li {
+        margin: 1rem 0;
+      }
+      .btn-cv {
+        display: none;
+      }
+      .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+      .hero-content,
+      .hero-image {
+        margin: 0;
+        text-align: center;
+      }
+      .hero-image {
+        margin-top: 1.5rem;
+      }
+      .card {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+      .education-container,
+      .portfolio-container,
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .carousel-item {
+        flex: 0 0 280px;
+      }
+      .cert-img {
+        width: 260px;
+        height: 180px;
+      }
+    }
+    /* Cursor Follower - Small Faded Circle Under the Cursor */
+    .cursor-circle {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#volunteer">Volunteer</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Video Background -->
+  <video autoplay muted loop id="video-background">
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#volunteering">Positions Held</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#" class="btn-cv">Download CV</a>
+  </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-container">
-      <div class="hero-text">
-        <h1>Sangam Sanjay Bhamare</h1>
-        <p>Data Scientist | MSc Big Data Science Student</p>
-        <p>
-          London | 0758 654 3125 | 
-          <a href="mailto:bhamaresangam1@gmail.com">bhamaresangam1@gmail.com</a>
+  <section id="home" class="hero-section">
+    <div class="card">
+      <div class="hero-content">
+        <h1>Hello, I'm <span>Sangam Sanjay Bhamare</span></h1>
+        <p class="sub-text">
+          MSc Big Data Science | Queen Mary University of London
         </p>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/sangam-bhamare-4a358a181/" target="_blank">LinkedIn</a>
-          <a href="https://github.com/sangambhamare" target="_blank">GitHub</a>
+        <p class="contact-info">
+          London | 0758 654 3125 | <a href="mailto:bhamaresangam1@gmail.com" class="email">bhamaresangam1@gmail.com</a><br>
+          <a href="#" target="_blank">LinkedIn</a> | <a href="#" target="_blank">GitHub</a>
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Hire Me</a>
+          <a href="#contact" class="btn-secondary">Contact Me</a>
         </div>
-        <p class="intro">
-          I am a passionate Data Scientist with expertise in Big Data analytics, Machine Learning, and Artificial Intelligence. I thrive on transforming complex data into actionable insights that drive innovation and business growth.
-        </p>
+      </div>
+      <div class="hero-image">
+        <div class="image-bg">
+          <img src="profile1.png" alt="Sangam's Profile" />
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Quick Stats -->
+  <section class="stats-section">
+    <div class="stat-box">
+      <h2 data-target="1">0+</h2>
+      <p>Years of Experience</p>
+    </div>
+    <div class="stat-box">
+      <h2 data-target="50">0+</h2>
+      <p>Projects</p>
+    </div>
+    <div class="stat-box">
+      <h2 data-target="25">0+</h2>
+      <p>Certifications</p>
+    </div>
+    <div class="stat-box">
+      <h2 data-target="10">0+</h2>
+      <p>Awards of Excellence</p>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="about-section">
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        As an aspiring Data Scientist with a Master's in Big Data Science from Queen Mary University of London, I am excited about the possibilities that data holds for driving insights and innovation across various industries. I am eager to apply my skills in data science to real-world challenges, specializing in areas like AI, Machine Learning and Big Data. I am driven by the potential to use data-driven insights to influence business decisions, solve problems and foster innovation. I am actively seeking opportunities to collaborate with forward-thinking teams, contributing to impactful projects and continuing my growth as a data scientist.
+      </p>
+    </div>
+  </section>
+  
   <!-- Education Section -->
-  <section id="education">
-    <div class="container">
+  <section id="education" class="about-section">
+    <div class="card">
       <h2>Education</h2>
-      <div class="education-item">
-        <h3>MSc Big Data Science</h3>
-        <p><em>Queen Mary University of London | Sep 2024 - Sep 2025</em></p>
-        <p><strong>Relevant Modules:</strong> Data Mining, Applied Statistics, Natural Language Processing, Machine Learning, Risk &amp; Decision Making for Data Science &amp; AI, Neural Networks &amp; Deep Learning, Digital Media &amp; Social Networks, Big Data Processing</p>
-      </div>
-      <div class="education-item">
-        <h3>Bachelor of Technology</h3>
-        <p><em>Pune University, India | Jan 2021 - Jul 2023</em></p>
-        <p><strong>Modules:</strong> Object Oriented Programming, Software Engineering, DBMS, Computational Statistics, Artificial Intelligence, Cloud Computing, Blockchain Technology, Deep Learning, Computer Network</p>
-        <p><strong>Grades:</strong> 3.81/4 GPA</p>
-      </div>
-      <div class="education-item">
-        <h3>Diploma in Computer Engineering</h3>
-        <p><em>SNJB's HHJB Polytechnic, Chandwad, India | 2017 - 2020</em></p>
-        <p><strong>Modules:</strong> OOP, DSA, Java, Computer Networking, Python, Android</p>
-        <p><strong>Grades:</strong> 3.74/4.00</p>
+      <div class="education-container">
+        <div class="education-item">
+          <h3>MSc Big Data Science</h3>
+          <p><strong>Queen Mary University of London</strong> | Sep 2024 - Sep 2025</p>
+          <p>
+            Modules: Data Mining, Applied Statistics, Natural Language Processing, Machine Learning, Risk &amp; Decision Making for Data Science &amp; AI, Neural Networks &amp; Deep Learning, Digital Media &amp; Social Networks, Big Data Processing
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Bachelor of Technology</h3>
+          <p><strong>Pune University, India</strong> | Jan 2021 - Jul 2023</p>
+          <p>
+            Modules: Object Oriented Programming, Software Engineering, Database Management, Computational Statistics, Artificial Intelligence, Cloud Computing, Blockchain Technology, Deep Learning, Computer Network<br>
+            Grades: 3.81 / 4 GPA
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Diploma, Computer Technology and Science</h3>
+          <p><strong>SNJB’s SHHJB Polytechnic, Chandwad</strong> | Jul 2017 - Dec 2020</p>
+          <p>
+            Modules: Data Structure &amp; Algorithms, Object Oriented Programming, Computer Networking, Mathematics, Cloud Computing, Python, Java, Database Management, C++<br>
+            Grades: 93.60%
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects">
-    <div class="container">
+  <section id="projects" class="portfolio-section">
+    <div class="card">
       <h2>Projects</h2>
-      <div class="project-item">
-        <h3>Predicting Story Truthfulness using Machine Learning</h3>
-        <p><em>Oct 2024 - Present</em></p>
-        <p>
-          Developed a machine learning model that leverages audio features (such as pitch and power) to predict the veracity of stories. Utilized algorithms including Random Forest, KNN, and Logistic Regression to achieve 75% test accuracy while employing data visualization techniques to refine feature selection.
-        </p>
-      </div>
-      <div class="project-item">
-        <h3>Intelligent Caption Generator</h3>
-        <p><em>Jan 2024 - Present</em></p>
-        <p>
-          Designed and implemented an AI-powered caption generator using Chat-GPT, Python, and Streamlit. This system reduced caption generation time by 40% and achieved a 98% user satisfaction rate by automating image captioning.
-        </p>
-      </div>
-      <div class="project-item">
-        <h3>Chat-Bot for Centralised Ganesha Festival System</h3>
-        <p><em>Jan 2023 - Apr 2023</em></p>
-        <p>
-          Developed an NLP-enabled chatbot using Google Dialog-Flow to streamline interactions for a centralised festival management system, resulting in a 35% increase in user engagement efficiency.
-        </p>
+      <div class="portfolio-container">
+        <!-- Document Summarizer Project (Added) -->
+        <div class="portfolio-card">
+          <h3>Document Summarizer</h3>
+          <p>Feb 2025 - Present</p>
+          <p>
+            Introducing Document Summarizer! Check out my web app that uses Facebook's BART model to generate concise summaries from PDFs, DOCX, or TXT files. It automatically chunks long texts and shows word count differences between the original and the summary.
+          </p>
+          <a href="#" target="_blank" class="demo-link">LIVE DEMO</a>
+        </div>
+        <!-- Star Wars Survey Analysis -->
+        <div class="portfolio-card">
+          <h3>Star Wars Survey Analysis</h3>
+          <p>Feb 2025 - Present</p>
+          <p>
+            Processed 1,000+ survey responses using data cleaning, statistical analysis, and geospatial visualization. Developed a Streamlit dashboard with 30% improved insights and real-time data export. Applied Python (Pandas, Matplotlib, Seaborn) to analyze trends and generate 10+ visual reports.
+          </p>
+          <a href="#" target="_blank" class="demo-link">LIVE DEMO</a>
+        </div>
+        <!-- Zomato Data Analysis & ML Implementation -->
+        <div class="portfolio-card">
+          <h3>Zomato Data Analysis &amp; ML Implementation</h3>
+          <p>Feb 2025 - Present</p>
+          <p>
+            Analyzed 150+ restaurant records to extract insights on ratings, reviews, and location-based trends. Implemented ML models with up to 85% accuracy for predicting ratings and recommending restaurants. Utilized Python (Pandas, scikit-learn) for data processing, feature selection, and model building.
+          </p>
+          <a href="#" target="_blank" class="demo-link">LIVE DEMO</a>
+        </div>
+        <!-- Customer Segmentation using K-Means Clustering -->
+        <div class="portfolio-card">
+          <h3>Customer Segmentation using K-Means Clustering</h3>
+          <p>Dec 2024 – Jan 2025</p>
+          <p>
+            Performed customer segmentation on a retail dataset using K-Means clustering. Applied Python (Pandas, scikit-learn) for data preprocessing and model development, generating actionable insights for targeted marketing.
+          </p>
+          <a href="#" target="_blank" class="demo-link">LIVE DEMO</a>
+        </div>
+        <!-- Predicting Story Truthfulness using Machine Learning -->
+        <div class="portfolio-card">
+          <h3>Predicting Story Truthfulness using Machine Learning</h3>
+          <p>Oct 2024 – Nov 2024</p>
+          <p>
+            Developed a machine learning model to predict story truthfulness from audio features (pitch, power). Applied Random Forest, KNN, and Logistic Regression, achieving 75% test accuracy. Visualized key features to improve model performance.
+          </p>
+          <a href="#" target="_blank" class="demo-link">LIVE DEMO</a>
+        </div>
+        <!-- Intelligent Caption Generator -->
+        <div class="portfolio-card">
+          <h3>Intelligent Caption Generator</h3>
+          <p>Jan 2024 – Jul 2024</p>
+          <p>
+            Developed an AI model using Chat-GPT, Python, and Streamlit, reducing caption generation time by 40%. Automated image captioning, achieving 98% user satisfaction in initial tests.
+          </p>
+          <a href="#" target="_blank" class="demo-link">LIVE DEMO</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Work Experience Section -->
-  <section id="experience">
-    <div class="container">
+  <!-- Experience Section -->
+  <section id="experience" class="about-section">
+    <div class="card">
       <h2>Work Experience</h2>
-      <div class="experience-item">
-        <h3>AI Trainer, Outlier (Freelance)</h3>
-        <p><em>Dec 2024 - Present</em></p>
-        <p>
-          Validated and rated AI-generated responses, ensuring that outputs met quality and logical coherence standards. Played a key role in refining machine learning models through rigorous testing and continuous feedback.
-        </p>
-      </div>
-      <div class="experience-item">
-        <h3>Associate Technical Consultant, RNS Technology Services Dubai</h3>
-        <p><em>Jan 2023 - Jun 2023</em></p>
-        <p>
-          Enhanced authentication processes by developing data models that improved speed by 20% and optimized Single Sign-On to reduce login times by 15%. Contributed to streamlining security integrations and boosting overall system efficiency.
-        </p>
-      </div>
-      <div class="experience-item">
-        <h3>e-Intern, KMITL, Thailand</h3>
-        <p><em>Mar 2022 - Apr 2022</em></p>
-        <p>
-          Presented a predictive analytics project that reduced error rates by 10%, while employing effective data visualization to enhance stakeholder understanding and engagement.
-        </p>
+      <div class="education-container">
+        <div class="education-item">
+          <h3>AI Trainer, Outlier</h3>
+          <p>Dec 2024 – Feb 2025</p>
+          <p>
+            Validated math-related images to ensure quality and logical coherence. Rated AI-generated responses for accuracy and adherence to established standards.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Associate Technical Consultant, RNS Technology Services (Dubai)</h3>
+          <p>Jan 2023 – Jun 2023</p>
+          <p>
+            Improved authentication speed by 20% using data models with ForgeRock and Apache DS. Optimized Single Sign-On, reducing login times by 15% and streamlining security integration.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>e-Intern, KMITL (Thailand)</h3>
+          <p>Mar 2022 – Apr 2022</p>
+          <p>
+            Presented a machine learning project on predictive analytics with a focus on accuracy improvement. Reduced error rates by 10% and enhanced stakeholder understanding via effective data visualizations.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Project Intern, Sunandainfotech.Pvt.Ltd · Apprenticeship</h3>
+          <p>May 2018 – Jun 2018 · 2 mos</p>
+          <p>Nashik, Maharashtra, India</p>
+          <p>
+            Developed fundamental Android applications using Java in Android Studio. Demonstrated the ability to create functional, user-friendly mobile applications. Gained practical experience in building, testing, and debugging Android applications.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Volunteer Experience Section -->
-  <section id="volunteer">
-    <div class="container">
-      <h2>Volunteer Experience</h2>
-      <div class="volunteer-item">
-        <h3>President, Carnival-2020</h3>
-        <p><em>Feb 2020 - Mar 2020</em></p>
-        <p>
-          Led the organization of a state-level technical festival with over 500 participants, coordinating a team of 15 volunteers to ensure a seamless and successful event.
-        </p>
-      </div>
-      <div class="volunteer-item">
-        <h3>Secretary, Computer Society of India</h3>
-        <p><em>June 2018 - Apr 2019</em></p>
-        <p>
-          Conducted IoT workshops for over 200 students and managed volunteer teams for large-scale competitions, significantly enhancing technical skills and collaborative experience.
-        </p>
+  <section id="volunteering" class="about-section">
+    <div class="card">
+      <h2>Positions Held</h2>
+      <div class="education-container">
+        <div class="education-item">
+          <h3>President, Blood Donation Camp</h3>
+          <p>Feb 2020</p>
+          <p>
+            Organized a blood donation camp at the institute, facilitating over 150 student donations through effective coordination.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>President, Carnival-2020</h3>
+          <p>Feb 2020 – Mar 2020</p>
+          <p>
+            Coordinated a state-level technical festival with over 500 participants and managed a team of 15 volunteers for smooth execution.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Secretary, Computer Society of India</h3>
+          <p>Jun 2018 – Apr 2019</p>
+          <p>
+            Led IoT workshops for over 200 students on sensor integration and data transmission, improving understanding by 30%, while managing 15 volunteers during competitions.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Class Representative, SNJB’s SHHJB Polytechnic</h3>
+          <p>Jun 2019 – Nov 2020</p>
+          <p>
+            Represented a class of 80 students and the computer department at various events.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills">
-    <div class="container">
+  <section id="skills" class="skills-section">
+    <div class="card">
       <h2>Skills</h2>
-      <ul>
-        <li><strong>Programming Languages:</strong> Python, SQL</li>
-        <li><strong>Data Manipulation &amp; Analysis:</strong> Pandas, NumPy, SciPy</li>
-        <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, PyTorch</li>
-        <li><strong>Data Visualization:</strong> Matplotlib, Seaborn, Tableau, Power BI</li>
-        <li><strong>Processes:</strong> ETL, Data Cleaning, Data Wrangling, Data Collection</li>
-        <li><strong>Statistical Techniques:</strong> Hypothesis Testing, Regression Analysis, Bayesian Modelling</li>
-        <li><strong>Specializations:</strong> Natural Language Processing (NLP), Predictive Analytics, Time Series Analysis</li>
-        <li><strong>Soft Skills:</strong> Problem-Solving, Communication, Project Management, Team Collaboration</li>
-        <li><strong>Languages:</strong> English (fluent), Hindi (fluent), Marathi (Native)</li>
-      </ul>
+      <div class="skills-container">
+        <div class="skill">
+          <h3>Programming</h3>
+          <p>Python, SQL</p>
+        </div>
+        <div class="skill">
+          <h3>Machine Learning</h3>
+          <p>scikit-learn, TensorFlow, PyTorch; supervised learning, classification, regression, clustering, deep learning, NLP, generative AI</p>
+        </div>
+        <div class="skill">
+          <h3>Data Analysis</h3>
+          <p>Data wrangling, statistical analysis, predictive modelling</p>
+        </div>
+        <div class="skill">
+          <h3>Big Data</h3>
+          <p>Apache Spark, Hadoop, distributed processing</p>
+        </div>
+        <div class="skill">
+          <h3>Data Visualization</h3>
+          <p>Power BI, Tableau, Matplotlib, Seaborn</p>
+        </div>
+        <div class="skill">
+          <h3>ML-Ops &amp; ETL</h3>
+          <p>ETL processes, model deployment</p>
+        </div>
+        <div class="skill">
+          <h3>Soft Skills</h3>
+          <p>Strong communication, problem-solving, team collaboration</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Certifications Section -->
-  <section id="certifications">
-    <div class="container">
+  <!-- Certifications Section (3-Item Carousel) -->
+  <section id="certifications" class="about-section">
+    <div class="card">
       <h2>Certifications</h2>
-      <div class="certification-item">
-        <h3>Python 3.4.3 Training <span class="date">(12/2021 - Present)</span></h3>
-        <p>Spoken Tutorial Project, IIT Bombay</p>
+      <div class="carousel-container">
+        <!-- Left Arrow -->
+        <button class="carousel-arrow left" id="arrow-left">&#8249;</button>
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-item">
+            <h3>IBM Data Science Professional</h3>
+            <img src="cert_ibm_datascience.png" alt="IBM Data Science Professional" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Deep Learning and NLP A-Z</h3>
+            <img src="cert_udemy_chatbot.png" alt="Deep Learning and NLP A-Z" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Machine Learning A-Z</h3>
+            <img src="cert_udemy_ml_az.png" alt="Machine Learning A-Z" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Python 3.4.3 Training</h3>
+            <img src="cert_iit_bombay.png" alt="Python 3.4.3 Training" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Generative AI: Elevate Your Data Science Career</h3>
+            <img src="cert_ibm_generative_ai.png" alt="Generative AI Certificate" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Applied Data Science Capstone</h3>
+            <img src="cert_ibm_capstone.png" alt="Applied Data Science Capstone" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Data Analysis with Python</h3>
+            <img src="cert_ibm_data_analysis.png" alt="Data Analysis with Python" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Data Science Methodology</h3>
+            <img src="cert_ibm_methodology.png" alt="Data Science Methodology" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Data Visualization with Python</h3>
+            <img src="cert_ibm_data_vis.png" alt="Data Visualization with Python" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Databases and SQL for Data Science</h3>
+            <img src="cert_ibm_databases.png" alt="Databases and SQL for Data Science" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>What is Data Science?</h3>
+            <img src="cert_ibm_ds.png" alt="IBM Data Science Specialization" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Machine Learning with Python</h3>
+            <img src="cert_ibm_ml_python.png" alt="Machine Learning with Python" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Python Project for Data Science</h3>
+            <img src="cert_ibm_project.png" alt="Python Project for Data Science" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Python for Data Science, AI &amp; Development</h3>
+            <img src="cert_ibm_python.png" alt="Python for Data Science, AI & Development" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Tools for Data Science</h3>
+            <img src="cert_ibm_tools.png" alt="Tools for Data Science" class="cert-img">
+          </div>
+        </div>
+        <!-- Right Arrow -->
+        <button class="carousel-arrow right" id="arrow-right">&#8250;</button>
       </div>
-      <div class="certification-item">
-        <h3>Deep Learning and NLP A-Z: How to Create a Chatbot <span class="date">(09/2021 - 09/2021)</span></h3>
-        <p>Complete Certification for Chatbot development course from Udemy</p>
-      </div>
-      <div class="certification-item">
-        <h3>CPP Training <span class="date">(08/2021 - Present)</span></h3>
-        <p>Spoken Tutorial Project, IIT Bombay</p>
-      </div>
-      <div class="certification-item">
-        <h3>Hardware and Networking <span class="date">(06/2019 - 03/2020)</span></h3>
-        <p>Certification of Hardware and Networking Course</p>
-      </div>
-      <div class="certification-item">
-        <h3>Machine Learning A-Z: AI, Python &amp; R + ChatGPT Bonus</h3>
-        <p>Certification from Udemy</p>
+    </div>
+  </section>
+
+  <!-- Publications Section -->
+  <section id="publications" class="about-section">
+    <div class="card">
+      <h2>Publications</h2>
+      <div class="education-container">
+        <div class="education-item">
+          <h3>Data-Driven Ganesha Festival Management</h3>
+          <a href="https://thegrenze.com/index.php?display=page&view=journalabstract&absid=2502&id=8" target="_blank" style="color: #00c9b1; text-decoration: none;">
+            Click here to access the paper
+          </a>
+          <p><strong>MLIP 2023 </strong> · Dec 22, 2023 </p>
+          <p>
+            Presented and published "Data-Driven Ganesha Festival Management: NLP Chat-bot, Ecommerce, Request Modules and Data Analytics Integration" at MLIP-2023 (Dec 2023); paper indexed by Scopus.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>The Happiest Me Book</h3>
+          <a href="https://notionpress.com/in/read/the-happiest-me/" target="_blank" style="color: #00c9b1; text-decoration: none;">
+            Click here to access the book
+          </a>
+          <p><strong>Notion Press</strong> · Apr 7, 2023</p>
+          <p>
+            The Pursuit of Happiness is a comprehensive guide to achieving true happiness and fulfillment in life. Author Sangam Sanjay Bhamare, a scholar Computer Engineer from Nashik, India, draws on personal experiences and research in positive psychology to provide practical strategies for cultivating happiness.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Survey Paper on Smart Farming System</h3>
+          <a href="http://hbrppublication.com/OJS/index.php/JAPC/article/view/934" target="_blank" style="color: #00c9b1; text-decoration: none;">
+            Click here to access the paper
+          </a>
+          <p><strong>HBRP Publications</strong> · Nov 1, 2019</p>
+          <p>
+            This paper outlines a digitalized approach to farming, enabling farmers to assess crop necessities and predict growth accurately to improve productivity.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Achievements Section -->
-  <section id="achievements">
-    <div class="container">
+  <section class="about-section">
+    <div class="card">
       <h2>Achievements</h2>
-      <ul>
-        <li>Presented and published <em>"Data-Driven Ganesha Festival Management: NLP Chat-bot, Ecommerce, Request Modules and Data Analytics Integration"</em> at MLIP-2023 (Dec 2023); paper indexed by Scopus.</li>
-        <li>Gold Medallist: Secured Gold Medal for Academic Rank 1 at JSPM's Rajarshi Shahu College of Engineering, Pune.</li>
-        <li>Gold Medallist: Secured Gold Medal for Academic Rank 1 at Diploma in Computer Engineering.</li>
-      </ul>
+      <div class="education-container">
+        <div class="education-item">
+          <h3>Award of Excellence (Gold Medal) - Bachelors</h3>
+          <p>
+            Secured Academic Rank 1 in Bachelor's at JSPM's Rajarshi Shahu College of Engineering, Pune.
+          </p>
+        </div>
+        <div class="education-item">
+          <h3>Award of Excellence (Gold Medal) - Diploma</h3>
+          <p>
+            Secured Academic Rank 1 in Diploma at SNJB’s HHJB Polytechnic, Chandwad.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>London | 0758 654 3125</p>
-      <p>Email: <a href="mailto:bhamaresangam1@gmail.com">bhamaresangam1@gmail.com</a></p>
-      <p>
-        <a href="https://www.linkedin.com/in/sangam-bhamare-4a358a181/" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/sangambhamare" target="_blank">GitHub</a>
-      </p>
+  <section id="contact" class="contact-section">
+    <div class="card">
+      <h2>Contact Me</h2>
+      <form static-form action="#" method="POST" class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+      </form>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 Sangam Sanjay Bhamare. All rights reserved.</p>
-    </div>
+  <footer class="footer">
+    <p>© 2025 Sangam Sanjay Bhamare. All rights reserved.</p>
   </footer>
+
+  <!-- Cursor Follower -->
+  <div class="cursor-circle"></div>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetID = this.getAttribute('href');
+        const targetElement = document.querySelector(targetID);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 70,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Mobile hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Cursor Follower - Small Faded Circle Under the Cursor
+    const cursorCircle = document.querySelector('.cursor-circle');
+    document.addEventListener('mousemove', function(e) {
+      cursorCircle.style.left = e.clientX + 'px';
+      cursorCircle.style.top = e.clientY + 'px';
+    });
+
+    // Count-Up Animation for Quick Stats
+    document.addEventListener('DOMContentLoaded', function() {
+      const counters = document.querySelectorAll('.stat-box h2');
+      counters.forEach(counter => {
+        const updateCount = () => {
+          let target = +counter.getAttribute('data-target');
+          let count = +counter.innerText.replace('+', '');
+          const increment = target / 200;
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment) + '+';
+            setTimeout(updateCount, 20);
+          } else {
+            counter.innerText = target + '+';
+          }
+        };
+        updateCount();
+      });
+    });
+
+    // Carousel Logic (3 items visible)
+    const track = document.getElementById('carousel-track');
+    const items = Array.from(track.querySelectorAll('.carousel-item'));
+    const prevButton = document.getElementById('arrow-left');
+    const nextButton = document.getElementById('arrow-right');
+
+    let currentIndex = 0;
+    // Dynamically calculate the item width based on the first carousel item
+    const itemWidth = items[0].offsetWidth;
+    const gap = 32;
+    const totalItems = items.length;
+    const slidesToShow = 3;
+    const maxIndex = totalItems - slidesToShow;
+
+    function updateCarousel() {
+      const offset = (itemWidth + gap) * currentIndex;
+      track.style.transform = `translateX(-${offset}px)`;
+      updateActiveItem();
+    }
+
+    function updateActiveItem() {
+      items.forEach(item => item.classList.remove('active'));
+      const centerIndex = currentIndex + 1;
+      if (centerIndex >= 0 && centerIndex < totalItems) {
+        items[centerIndex].classList.add('active');
+      }
+    }
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = Math.max(0, currentIndex - 1);
+      updateCarousel();
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = Math.min(maxIndex, currentIndex + 1);
+      updateCarousel();
+    });
+
+    updateCarousel();
+  </script>
+
+  <!-- Static App Form Collection Scripts -->
+  <script src="https://static.app/js/static-forms.js" type="text/javascript"></script>
+  <script src="https://static.app/js/static.js" type="text/javascript"></script>
+  <style>
+    /* Cursor Follower Style */
+    .cursor-circle {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+  </style>
 </body>
 </html>
