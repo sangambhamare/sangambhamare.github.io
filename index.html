@@ -1010,7 +1010,7 @@
 <script type="text/javascript">
   (function(){
     // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
-    emailjs.init("YOUR_USER_ID");
+    emailjs.init("service_gbg3qkc");
   })();
 </script>
 
@@ -1033,7 +1033,7 @@
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
     
-    emailjs.sendForm("service_gbg3qkc", "YOUR_TEMPLATE_ID", this)
+    emailjs.sendForm("service_gbg3qkc", "template_jkk7w7o", this)
       .then(function() {
         alert("Message sent successfully!");
         document.getElementById('contact-form').reset();
