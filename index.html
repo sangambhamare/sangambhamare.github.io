@@ -226,33 +226,18 @@
       color: #00c9b1;
       text-align: center;
     }
-    /* Education Container */
-    .education-container {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: left;
-      margin-top: 2rem;
-      display: grid;
-      grid-gap: 2rem;
-    }
-    .education-item h3 {
-      color: #00c9b1;
-      margin-bottom: 0.5rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .education-item p {
-      color: #ccc;
-      margin-bottom: 0.5rem;
-    }
-    /* Portfolio/Projects Section */
-    .portfolio-container {
+    /* Containers for Items (similar to Projects) */
+    .education-container,
+    .work-container,
+    .volunteer-container,
+    .publication-container,
+    .achievement-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
+    /* We'll reuse .portfolio-card styling for individual items */
     .portfolio-card {
       background: #11151f;
       border-radius: 8px;
@@ -262,6 +247,21 @@
     }
     .portfolio-card:hover {
       transform: scale(1.03);
+    }
+    /* Specific adjustments for items (if needed) */
+    .education-item,
+    .work-item,
+    .volunteer-item,
+    .publication-item,
+    .achievement-item {
+      /* Additional styling can be added here if needed */
+    }
+    /* Portfolio/Projects Section */
+    .portfolio-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
     .portfolio-card h3 {
       color: #00c9b1;
@@ -352,8 +352,6 @@
     .carousel-arrow.right {
       right: 10px;
     }
-    /* Publications Section */
-    /* (Using Education Container styles) */
     /* Contact Section */
     .contact-form {
       max-width: 600px;
@@ -432,6 +430,10 @@
         padding: 1.5rem;
       }
       .education-container,
+      .work-container,
+      .volunteer-container,
+      .publication-container,
+      .achievement-container,
       .portfolio-container,
       .skills-container {
         grid-template-columns: 1fr;
@@ -548,14 +550,14 @@
     <div class="card">
       <h2>Education</h2>
       <div class="education-container">
-        <div class="education-item">
+        <div class="portfolio-card education-item">
           <h3>MSc Big Data Science</h3>
           <p><strong>Queen Mary University of London</strong> | Sep 2024 - Sep 2025</p>
           <p>
             Modules: Data Mining, Applied Statistics, Natural Language Processing, Machine Learning, Risk &amp; Decision Making for Data Science &amp; AI, Neural Networks &amp; Deep Learning, Digital Media &amp; Social Networks, Big Data Processing
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card education-item">
           <h3>Bachelor of Technology</h3>
           <p><strong>Pune University, India</strong> | Jan 2021 - Jul 2023</p>
           <p>
@@ -563,7 +565,7 @@
             Grades: 3.81 / 4 GPA
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card education-item">
           <h3>Diploma, Computer Technology and Science</h3>
           <p><strong>SNJB’s SHHJB Polytechnic, Chandwad</strong> | Jul 2017 - Dec 2020</p>
           <p>
@@ -636,33 +638,33 @@
       </div>
     </div>
   </section>
-  <!-- Experience Section -->
+  <!-- Work Experience Section -->
   <section id="experience" class="about-section">
     <div class="card">
       <h2>Work Experience</h2>
-      <div class="education-container">
-        <div class="education-item">
+      <div class="work-container">
+        <div class="portfolio-card work-item">
           <h3>AI Trainer, Outlier</h3>
           <p>Dec 2024 – Feb 2025</p>
           <p>
             Validated math-related images to ensure quality and logical coherence. Rated AI-generated responses for accuracy and adherence to established standards.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card work-item">
           <h3>Associate Technical Consultant, RNS Technology Services (Dubai)</h3>
           <p>Jan 2023 – Jun 2023</p>
           <p>
             Improved authentication speed by 20% using data models with ForgeRock and Apache DS. Optimized Single Sign-On, reducing login times by 15% and streamlining security integration.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card work-item">
           <h3>e-Intern, KMITL (Thailand)</h3>
           <p>Mar 2022 – Apr 2022</p>
           <p>
             Presented a machine learning project on predictive analytics with a focus on accuracy improvement. Reduced error rates by 10% and enhanced stakeholder understanding via effective data visualizations.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card work-item">
           <h3>Project Intern, Sunandainfotech.Pvt.Ltd · Apprenticeship</h3>
           <p>May 2018 – Jun 2018 · 2 mos</p>
           <p>Nashik, Maharashtra, India</p>
@@ -673,33 +675,33 @@
       </div>
     </div>
   </section>
-  <!-- Volunteer Experience Section -->
+  <!-- Volunteer Experience Section (Positions Held) -->
   <section id="volunteering" class="about-section">
     <div class="card">
       <h2>Positions Held</h2>
-      <div class="education-container">
-        <div class="education-item">
+      <div class="volunteer-container">
+        <div class="portfolio-card volunteer-item">
           <h3>President, Blood Donation Camp</h3>
           <p>Feb 2020</p>
           <p>
             Organized a blood donation camp at the institute, facilitating over 150 student donations through effective coordination.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card volunteer-item">
           <h3>President, Carnival-2020</h3>
           <p>Feb 2020 – Mar 2020</p>
           <p>
             Coordinated a state-level technical festival with over 500 participants and managed a team of 15 volunteers for smooth execution.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card volunteer-item">
           <h3>Secretary, Computer Society of India</h3>
           <p>Jun 2018 – Apr 2019</p>
           <p>
             Led IoT workshops for over 200 students on sensor integration and data transmission, improving understanding by 30%, while managing 15 volunteers during competitions.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card volunteer-item">
           <h3>Class Representative, SNJB’s SHHJB Polytechnic</h3>
           <p>Jun 2019 – Nov 2020</p>
           <p>
@@ -709,122 +711,12 @@
       </div>
     </div>
   </section>
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="card">
-      <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skill">
-          <h3>Programming</h3>
-          <p>Python, SQL</p>
-        </div>
-        <div class="skill">
-          <h3>Machine Learning</h3>
-          <p>scikit-learn, TensorFlow, PyTorch; supervised learning, classification, regression, clustering, deep learning, NLP, generative AI</p>
-        </div>
-        <div class="skill">
-          <h3>Data Analysis</h3>
-          <p>Data wrangling, statistical analysis, predictive modelling</p>
-        </div>
-        <div class="skill">
-          <h3>Big Data</h3>
-          <p>Apache Spark, Hadoop, distributed processing</p>
-        </div>
-        <div class="skill">
-          <h3>Data Visualization</h3>
-          <p>Power BI, Tableau, Matplotlib, Seaborn</p>
-        </div>
-        <div class="skill">
-          <h3>ML-Ops &amp; ETL</h3>
-          <p>ETL processes, model deployment</p>
-        </div>
-        <div class="skill">
-          <h3>Soft Skills</h3>
-          <p>Strong communication, problem-solving, team collaboration</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Certifications Section (3-Item Carousel) -->
-  <section id="certifications" class="about-section">
-    <div class="card">
-      <h2>Certifications</h2>
-      <div class="carousel-container">
-        <!-- Left Arrow -->
-        <button class="carousel-arrow left" id="arrow-left">&#8249;</button>
-        <div class="carousel-track" id="carousel-track">
-          <div class="carousel-item">
-            <h3>IBM Data Science Professional</h3>
-            <img src="cert_ibm_datascience.png" alt="IBM Data Science Professional" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Deep Learning and NLP A-Z</h3>
-            <img src="cert_udemy_chatbot.png" alt="Deep Learning and NLP A-Z" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Machine Learning A-Z</h3>
-            <img src="cert_udemy_ml_az.png" alt="Machine Learning A-Z" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Python 3.4.3 Training</h3>
-            <img src="cert_iit_bombay.png" alt="Python 3.4.3 Training" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Generative AI: Elevate Your Data Science Career</h3>
-            <img src="cert_ibm_generative_ai.png" alt="Generative AI Certificate" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Applied Data Science Capstone</h3>
-            <img src="cert_ibm_capstone.png" alt="Applied Data Science Capstone" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Data Analysis with Python</h3>
-            <img src="cert_ibm_data_analysis.png" alt="Data Analysis with Python" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Data Science Methodology</h3>
-            <img src="cert_ibm_methodology.png" alt="Data Science Methodology" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Data Visualization with Python</h3>
-            <img src="cert_ibm_data_vis.png" alt="Data Visualization with Python" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Databases and SQL for Data Science</h3>
-            <img src="cert_ibm_databases.png" alt="Databases and SQL for Data Science" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>What is Data Science?</h3>
-            <img src="cert_ibm_ds.png" alt="IBM Data Science Specialization" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Machine Learning with Python</h3>
-            <img src="cert_ibm_ml_python.png" alt="Machine Learning with Python" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Python Project for Data Science</h3>
-            <img src="cert_ibm_project.png" alt="Python Project for Data Science" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Python for Data Science, AI &amp; Development</h3>
-            <img src="cert_ibm_python.png" alt="Python for Data Science, AI & Development" class="cert-img">
-          </div>
-          <div class="carousel-item">
-            <h3>Tools for Data Science</h3>
-            <img src="cert_ibm_tools.png" alt="Tools for Data Science" class="cert-img">
-          </div>
-        </div>
-        <!-- Right Arrow -->
-        <button class="carousel-arrow right" id="arrow-right">&#8250;</button>
-      </div>
-    </div>
-  </section>
   <!-- Publications Section -->
   <section id="publications" class="about-section">
     <div class="card">
       <h2>Publications</h2>
-      <div class="education-container">
-        <div class="education-item">
+      <div class="publication-container">
+        <div class="portfolio-card publication-item">
           <h3>Data-Driven Ganesha Festival Management</h3>
           <a href="https://thegrenze.com/index.php?display=page&view=journalabstract&absid=2502&id=8" target="_blank" style="color: #00c9b1; text-decoration: none;">
             Click here to access the paper
@@ -834,7 +726,7 @@
             Presented and published "Data-Driven Ganesha Festival Management: NLP Chat-bot, Ecommerce, Request Modules and Data Analytics Integration" at MLIP-2023 (Dec 2023); paper indexed by Scopus.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card publication-item">
           <h3>The Happiest Me Book</h3>
           <a href="https://notionpress.com/in/read/the-happiest-me/" target="_blank" style="color: #00c9b1; text-decoration: none;">
             Click here to access the book
@@ -844,7 +736,7 @@
             This book covers a wide range of topics, including mindfulness, social connections, exercise and diet, coping with negative emotions, identifying your passions, building resilience, and the impact of giving back. Through actionable tips and exercises, readers will learn how to overcome obstacles to happiness and pursue their passions for a happier life.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card publication-item">
           <h3>Survey Paper on Smart Farming System</h3>
           <a href="http://hbrppublication.com/OJS/index.php/JAPC/article/view/934" target="_blank" style="color: #00c9b1; text-decoration: none;">
             Click here to access the paper
@@ -861,14 +753,14 @@
   <section class="about-section">
     <div class="card">
       <h2>Achievements</h2>
-      <div class="education-container">
-        <div class="education-item">
+      <div class="achievement-container">
+        <div class="portfolio-card achievement-item">
           <h3>Award of Excellence (Gold Medal) - Bachelors</h3>
           <p>
             Secured Academic Rank 1 in Bachelor's at JSPM's Rajarshi Shahu College of Engineering, Pune.
           </p>
         </div>
-        <div class="education-item">
+        <div class="portfolio-card achievement-item">
           <h3>Award of Excellence (Gold Medal) - Diploma</h3>
           <p>
             Secured Academic Rank 1 in Diploma at SNJB’s HHJB Polytechnic, Chandwad.
@@ -900,7 +792,7 @@
   <script type="text/javascript">
     (function(){
       // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS Public Key from your dashboard
-      emailjs.init("YOUR_PUBLIC_KEY");
+      emailjs.init("FUFWzf_xdNU0HSvqJ");
     })();
   </script>
   <script>
