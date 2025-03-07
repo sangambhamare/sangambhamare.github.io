@@ -474,7 +474,6 @@
     <source src="video.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Portfolio</div>
@@ -496,7 +495,6 @@
     </ul>
     <a href="Sangam Bhamare 1 Page Resume.pdf" class="btn-cv">Download CV</a>
   </nav>
-
   <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="card">
@@ -521,7 +519,6 @@
       </div>
     </div>
   </section>
-
   <!-- Quick Stats -->
   <section class="stats-section">
     <div class="stat-box">
@@ -541,7 +538,6 @@
       <p>Awards of Excellence</p>
     </div>
   </section>
-
   <!-- About Me Section -->
   <section id="about" class="about-section">
     <div class="card">
@@ -551,7 +547,6 @@
       </p>
     </div>
   </section>
-  
   <!-- Education Section -->
   <section id="education" class="about-section">
     <div class="card">
@@ -583,7 +578,6 @@
       </div>
     </div>
   </section>
-
   <!-- Projects Section -->
   <section id="projects" class="portfolio-section">
     <div class="card">
@@ -646,7 +640,6 @@
       </div>
     </div>
   </section>
-
   <!-- Experience Section -->
   <section id="experience" class="about-section">
     <div class="card">
@@ -684,7 +677,6 @@
       </div>
     </div>
   </section>
-
   <!-- Volunteer Experience Section -->
   <section id="volunteering" class="about-section">
     <div class="card">
@@ -721,7 +713,6 @@
       </div>
     </div>
   </section>
-
   <!-- Skills Section -->
   <section id="skills" class="skills-section">
     <div class="card">
@@ -758,7 +749,6 @@
       </div>
     </div>
   </section>
-
   <!-- Certifications Section (3-Item Carousel) -->
   <section id="certifications" class="about-section">
     <div class="card">
@@ -833,7 +823,6 @@
       </div>
     </div>
   </section>
-
   <!-- Publications Section -->
   <section id="publications" class="about-section">
     <div class="card">
@@ -872,7 +861,6 @@
       </div>
     </div>
   </section>
-
   <!-- Achievements Section -->
   <section class="about-section">
     <div class="card">
@@ -893,28 +881,32 @@
       </div>
     </div>
   </section>
-
   <!-- Contact Section -->
   <section id="contact" class="contact-section">
     <div class="card">
       <h2>Contact Me</h2>
-      <form static-form action="#" method="POST" class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea rows="5" placeholder="Your Message" required></textarea>
+      <form id="contact-form" action="#" method="POST" class="contact-form">
+        <input type="text" name="from_name" placeholder="Your Name" required />
+        <input type="email" name="from_email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit" class="btn-primary">Send Message</button>
       </form>
     </div>
   </section>
-
   <!-- Footer -->
   <footer class="footer">
     <p>© 2025 Sangam Sanjay Bhamare. All rights reserved.</p>
   </footer>
-
   <!-- Cursor Follower -->
   <div class="cursor-circle"></div>
-
+  <!-- EmailJS Script -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS Public Key from your dashboard
+      emailjs.init("FUFWzf_xdNU0HSvqJ");
+    })();
+  </script>
   <script>
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -930,21 +922,18 @@
         }
       });
     });
-
     // Mobile hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-
     // Cursor Follower - Small Faded Circle Under the Cursor
     const cursorCircle = document.querySelector('.cursor-circle');
     document.addEventListener('mousemove', function(e) {
       cursorCircle.style.left = e.clientX + 'px';
       cursorCircle.style.top = e.clientY + 'px';
     });
-
     // Count-Up Animation for Quick Stats
     document.addEventListener('DOMContentLoaded', function() {
       const counters = document.querySelectorAll('.stat-box h2');
@@ -963,13 +952,11 @@
         updateCount();
       });
     });
-
     // Carousel Logic (3 items visible)
     const track = document.getElementById('carousel-track');
     const items = Array.from(track.querySelectorAll('.carousel-item'));
     const prevButton = document.getElementById('arrow-left');
     const nextButton = document.getElementById('arrow-right');
-
     let currentIndex = 0;
     // Dynamically calculate the item width based on the first carousel item
     const itemWidth = items[0].offsetWidth;
@@ -977,13 +964,11 @@
     const totalItems = items.length;
     const slidesToShow = 3;
     const maxIndex = totalItems - slidesToShow;
-
     function updateCarousel() {
       const offset = (itemWidth + gap) * currentIndex;
       track.style.transform = `translateX(-${offset}px)`;
       updateActiveItem();
     }
-
     function updateActiveItem() {
       items.forEach(item => item.classList.remove('active'));
       const centerIndex = currentIndex + 1;
@@ -991,70 +976,28 @@
         items[centerIndex].classList.add('active');
       }
     }
-
     prevButton.addEventListener('click', () => {
       currentIndex = Math.max(0, currentIndex - 1);
       updateCarousel();
     });
-
     nextButton.addEventListener('click', () => {
       currentIndex = Math.min(maxIndex, currentIndex + 1);
       updateCarousel();
     });
-
     updateCarousel();
+    // EmailJS: Handle form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      emailjs.sendForm("service_gbg3qkc", "template_jkk7w7o", this)
+        .then(function() {
+          alert("Message sent successfully!");
+          document.getElementById('contact-form').reset();
+        }, function(error) {
+          alert("Failed to send message. Please try again later.");
+          console.error("EmailJS error:", error);
+        });
+    });
   </script>
-
-<!-- Include EmailJS script -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function(){
-    // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
-    emailjs.init("service_gbg3qkc");
-  })();
-</script>
-
-<!-- Include EmailJS script -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function(){
-    // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
-    emailjs.init("FUFWzf_xdNU0HSvqJ");
-  })();
-</script>
-
-<!-- Contact Section -->
-<section id="contact" class="contact-section">
-  <div class="card">
-    <h2>Contact Me</h2>
-    <form id="contact-form" action="#" method="POST" class="contact-form">
-      <input type="text" name="from_name" placeholder="Your Name" required />
-      <input type="email" name="from_email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn-primary">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<script>
-  // Handle form submission using EmailJS
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    emailjs.sendForm("service_gbg3qkc", "template_jkk7w7o", this)
-      .then(function() {
-        alert("Message sent successfully!");
-        document.getElementById('contact-form').reset();
-      }, function(error) {
-        alert("Failed to send message. Please try again later.");
-        console.error("EmailJS error:", error);
-      });
-  });
-</script>
-
-
-  
-
   <style>
     /* Cursor Follower Style */
     .cursor-circle {
