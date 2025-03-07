@@ -138,7 +138,7 @@
       margin-bottom: 1rem;
       transition: transform 0.3s ease;
     }
-    /* Removed Hire Me button – only Contact Me remains */
+    /* Only Contact Me button (Hire Me removed) */
     .btn-primary,
     .btn-secondary {
       padding: 0.6rem 1.2rem;
@@ -310,6 +310,60 @@
       color: #666;
       font-size: 0.9rem;
     }
+    /* Certifications Section - 3-Item Carousel (using provided CSS) */
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 2rem;
+    }
+    .carousel-item {
+      flex: 0 0 350px;
+      text-align: center;
+      background: #11151f;
+      border-radius: 8px;
+      padding: 1rem;
+      transform: scale(1);
+      transition: transform 0.3s;
+    }
+    .carousel-item.active {
+      transform: scale(1.15);
+    }
+    .cert-img {
+      display: block;
+      width: 300px;
+      height: 200px;
+      object-fit: contain;
+      margin: 0.5rem auto;
+    }
+    /* Arrow Buttons for Carousel */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.4);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 10;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    .carousel-arrow:hover {
+      background: rgba(0,0,0,0.6);
+    }
+    .carousel-arrow.left {
+      left: 10px;
+    }
+    .carousel-arrow.right {
+      right: 10px;
+    }
     /* Media Queries for Mobile */
     @media screen and (max-width: 768px) {
       .hamburger {
@@ -428,7 +482,6 @@
           <a href="https://github.com/sangambhamare" target="_blank">GitHub</a>
         </p>
         <div class="hero-buttons">
-          <!-- Removed Hire Me; only Contact Me remains -->
           <a href="#contact" class="btn-secondary">Contact Me</a>
         </div>
       </div>
