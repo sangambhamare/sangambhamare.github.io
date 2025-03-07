@@ -138,6 +138,7 @@
       margin-bottom: 1rem;
       transition: transform 0.3s ease;
     }
+    /* Only Contact Me button now */
     .btn-primary,
     .btn-secondary {
       padding: 0.6rem 1.2rem;
@@ -169,7 +170,7 @@
       justify-content: center;
       align-items: center;
     }
-    /* Profile Image Outer Circle with Matching Color */
+    /* Profile Image Outer Circle */
     .image-bg {
       position: relative;
       width: 350px;
@@ -216,7 +217,7 @@
         transform: translateY(0);
       }
     }
-    /* Section Titles - Centered */
+    /* Section Titles */
     .about-section h2,
     .portfolio-section h2,
     .skills-section h2,
@@ -226,7 +227,7 @@
       color: #00c9b1;
       text-align: center;
     }
-    /* Containers for Items (similar to Projects) */
+    /* Containers for Items (Education, Work, Volunteer, Publication, Achievement) */
     .education-container,
     .work-container,
     .volunteer-container,
@@ -237,7 +238,7 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    /* Reusing portfolio-card styling for individual items */
+    /* Reuse portfolio-card styling for items */
     .portfolio-card {
       background: #11151f;
       border-radius: 8px;
@@ -247,13 +248,6 @@
     }
     .portfolio-card:hover {
       transform: scale(1.03);
-    }
-    /* Portfolio/Projects Section */
-    .portfolio-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
     }
     .portfolio-card h3 {
       color: #00c9b1;
@@ -271,13 +265,13 @@
     .demo-link:hover {
       text-decoration: underline;
     }
-    /* Skills Section */
+    /* Skills Section - use grid for consistency */
     .skills-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
+      align-items: stretch;
     }
     /* Contact Section */
     .contact-form {
@@ -316,7 +310,7 @@
       color: #666;
       font-size: 0.9rem;
     }
-    /* Media Queries for Mobile Responsiveness */
+    /* Media Queries for Mobile */
     @media screen and (max-width: 768px) {
       .hamburger {
         display: flex;
@@ -380,7 +374,7 @@
         height: 180px;
       }
     }
-    /* Cursor Follower - Small Faded Circle Under the Cursor */
+    /* Cursor Follower */
     .cursor-circle {
       position: fixed;
       width: 20px;
@@ -430,10 +424,11 @@
         </p>
         <p class="contact-info">
           London | +44 0758 654 3125 | <a href="mailto:bhamaresangam1@gmail.com" class="email">bhamaresangam1@gmail.com</a><br>
-          <a href="https://www.linkedin.com/in/sangam-bhamare-4a358a181/" target="_blank">LinkedIn</a> | <a href="https://github.com/sangambhamare" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/sangam-bhamare-4a358a181/" target="_blank">LinkedIn</a> | 
+          <a href="https://github.com/sangambhamare" target="_blank">GitHub</a>
         </p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">Hire Me</a>
+          <!-- Removed Hire Me button -->
           <a href="#contact" class="btn-secondary">Contact Me</a>
         </div>
       </div>
@@ -637,7 +632,7 @@
       </div>
     </div>
   </section>
-  <!-- Volunteer Experience Section (Positions Held) -->
+  <!-- Volunteer Experience Section -->
   <section id="volunteering" class="about-section">
     <div class="card">
       <h2>Positions Held</h2>
@@ -670,6 +665,80 @@
             Represented a class of 80 students and the computer department at various events.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+  <!-- Certifications Section -->
+  <section id="certifications" class="about-section">
+    <div class="card">
+      <h2>Certifications</h2>
+      <div class="carousel-container">
+        <!-- Left Arrow -->
+        <button class="carousel-arrow left" id="arrow-left">&#8249;</button>
+        <div class="carousel-track" id="carousel-track">
+          <div class="carousel-item">
+            <h3>IBM Data Science Professional</h3>
+            <img src="cert_ibm_datascience.png" alt="IBM Data Science Professional" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Deep Learning and NLP A-Z</h3>
+            <img src="cert_udemy_chatbot.png" alt="Deep Learning and NLP A-Z" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Machine Learning A-Z</h3>
+            <img src="cert_udemy_ml_az.png" alt="Machine Learning A-Z" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Python 3.4.3 Training</h3>
+            <img src="cert_iit_bombay.png" alt="Python 3.4.3 Training" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Generative AI: Elevate Your Data Science Career</h3>
+            <img src="cert_ibm_generative_ai.png" alt="Generative AI Certificate" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Applied Data Science Capstone</h3>
+            <img src="cert_ibm_capstone.png" alt="Applied Data Science Capstone" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Data Analysis with Python</h3>
+            <img src="cert_ibm_data_analysis.png" alt="Data Analysis with Python" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Data Science Methodology</h3>
+            <img src="cert_ibm_methodology.png" alt="Data Science Methodology" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Data Visualization with Python</h3>
+            <img src="cert_ibm_data_vis.png" alt="Data Visualization with Python" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Databases and SQL for Data Science</h3>
+            <img src="cert_ibm_databases.png" alt="Databases and SQL for Data Science" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>What is Data Science?</h3>
+            <img src="cert_ibm_ds.png" alt="IBM Data Science Specialization" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Machine Learning with Python</h3>
+            <img src="cert_ibm_ml_python.png" alt="Machine Learning with Python" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Python Project for Data Science</h3>
+            <img src="cert_ibm_project.png" alt="Python Project for Data Science" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Python for Data Science, AI &amp; Development</h3>
+            <img src="cert_ibm_python.png" alt="Python for Data Science, AI & Development" class="cert-img">
+          </div>
+          <div class="carousel-item">
+            <h3>Tools for Data Science</h3>
+            <img src="cert_ibm_tools.png" alt="Tools for Data Science" class="cert-img">
+          </div>
+        </div>
+        <!-- Right Arrow -->
+        <button class="carousel-arrow right" id="arrow-right">&#8250;</button>
       </div>
     </div>
   </section>
