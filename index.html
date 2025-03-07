@@ -237,7 +237,7 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    /* We'll reuse .portfolio-card styling for individual items */
+    /* Reusing portfolio-card styling for individual items */
     .portfolio-card {
       background: #11151f;
       border-radius: 8px;
@@ -247,14 +247,6 @@
     }
     .portfolio-card:hover {
       transform: scale(1.03);
-    }
-    /* Specific adjustments for items (if needed) */
-    .education-item,
-    .work-item,
-    .volunteer-item,
-    .publication-item,
-    .achievement-item {
-      /* Additional styling can be added here if needed */
     }
     /* Portfolio/Projects Section */
     .portfolio-container {
@@ -279,78 +271,13 @@
     .demo-link:hover {
       text-decoration: underline;
     }
-    /* Skills/Modules Section */
+    /* Skills Section */
     .skills-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
       margin-top: 2rem;
-    }
-    .skill {
-      background: #11151f;
-      padding: 1rem;
-      border-radius: 8px;
-      width: 260px;
-      text-align: left;
-    }
-    .skill h3 {
-      color: #00c9b1;
-      margin-bottom: 0.5rem;
-    }
-    /* Certifications Section - 3-Item Carousel */
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      margin: 0 auto;
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s ease;
-      gap: 2rem;
-    }
-    .carousel-item {
-      flex: 0 0 350px;
-      text-align: center;
-      background: #11151f;
-      border-radius: 8px;
-      padding: 1rem;
-      transform: scale(1);
-      transition: transform 0.3s;
-    }
-    .carousel-item.active {
-      transform: scale(1.15);
-    }
-    .cert-img {
-      display: block;
-      width: 300px;
-      height: 200px;
-      object-fit: contain;
-      margin: 0.5rem auto;
-    }
-    /* Arrow Buttons for Carousel */
-    .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.4);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 10;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-    }
-    .carousel-arrow:hover {
-      background: rgba(0,0,0,0.6);
-    }
-    .carousel-arrow.left {
-      left: 10px;
-    }
-    .carousel-arrow.right {
-      right: 10px;
     }
     /* Contact Section */
     .contact-form {
@@ -483,10 +410,10 @@
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#volunteering">Positions Held</a></li>
-      <li><a href="#skills">Skills</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -576,6 +503,42 @@
       </div>
     </div>
   </section>
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="portfolio-card skill">
+          <h3>Programming</h3>
+          <p>Python, SQL</p>
+        </div>
+        <div class="portfolio-card skill">
+          <h3>Machine Learning</h3>
+          <p>Supervised &amp; Unsupervised Learning, Deep Learning, NLP, Computer Vision, Generative AI</p>
+        </div>
+        <div class="portfolio-card skill">
+          <h3>Data Analytics</h3>
+          <p>Pandas, NumPy, Scikit-learn, PySpark, TensorFlow, PyTorch</p>
+        </div>
+        <div class="portfolio-card skill">
+          <h3>Big Data Technologies</h3>
+          <p>Apache Spark, Hadoop, Hive, Databricks</p>
+        </div>
+        <div class="portfolio-card skill">
+          <h3>Data Visualization</h3>
+          <p>Power BI, Tableau, Matplotlib, Seaborn, Plotly</p>
+        </div>
+        <div class="portfolio-card skill">
+          <h3>MLOps</h3>
+          <p>Model Deployment, CI/CD, MLflow, API Development</p>
+        </div>
+        <div class="portfolio-card skill">
+          <h3>Cloud</h3>
+          <p>AWS, Azure, Google Cloud (GCP), Cloud ML Services</p>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- Projects Section -->
   <section id="projects" class="portfolio-section">
     <div class="card">
@@ -654,14 +617,14 @@
           <h3>Associate Technical Consultant, RNS Technology Services (Dubai)</h3>
           <p>Jan 2023 – Jun 2023</p>
           <p>
-            Implemented authentication and authorization mechanisms using SSO, ForgeRock, and MFA, securing 500+ user logins and improving access. Conducted security-driven data analysis on 1,000+ authentication logs, testing multi-user login patterns and learning IAM concepts. Collaborated with the company director, optimizing login mechanisms, increasing authentication efficiency by 20%, and generating reports.      
+            Implemented authentication and authorization mechanisms using SSO, ForgeRock, and MFA, securing 500+ user logins and improving access. Conducted security-driven data analysis on 1,000+ authentication logs, testing multi-user login patterns and learning IAM concepts. Collaborated with the company director, optimizing login mechanisms, increasing authentication efficiency by 20%, and generating reports.
           </p>
         </div>
         <div class="portfolio-card work-item">
           <h3>e-Intern, KMITL (Thailand)</h3>
           <p>Mar 2022 – Apr 2022</p>
           <p>
-            Developed an AI-powered therapy chatbot using NLP to analyze emotions and recommend stress management solutions, improving accessibility. Implemented Naive Bayes and Collaborative Filtering, achieving 85% accuracy in detecting anger, fear, depression, and anxiety. Collaborated with 10+ international interns, optimizing chatbot interactions, integrating web applications, and enhancing database-driven recommendations.     
+            Developed an AI-powered therapy chatbot using NLP to analyze emotions and recommend stress management solutions, improving accessibility. Implemented Naive Bayes and Collaborative Filtering, achieving 85% accuracy in detecting anger, fear, depression, and anxiety. Collaborated with 10+ international interns, optimizing chatbot interactions, integrating web applications, and enhancing database-driven recommendations.
           </p>
         </div>
         <div class="portfolio-card work-item">
