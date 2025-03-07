@@ -1014,11 +1014,19 @@
   })();
 </script>
 
-<!-- Contact Section (ensure your form has an id) -->
+<!-- Include EmailJS script -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    // Replace 'YOUR_USER_ID' with your actual EmailJS User ID
+    emailjs.init("Gmail");
+  })();
+</script>
+
+<!-- Contact Section -->
 <section id="contact" class="contact-section">
   <div class="card">
     <h2>Contact Me</h2>
-    <!-- Added id="contact-form" to the form -->
     <form id="contact-form" action="#" method="POST" class="contact-form">
       <input type="text" name="from_name" placeholder="Your Name" required />
       <input type="email" name="from_email" placeholder="Your Email" required />
@@ -1029,10 +1037,10 @@
 </section>
 
 <script>
-  // EmailJS: Handle form submission
+  // Handle form submission using EmailJS
   document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-    
+    event.preventDefault(); // Prevent the default form submission
+
     emailjs.sendForm("service_gbg3qkc", "template_jkk7w7o", this)
       .then(function() {
         alert("Message sent successfully!");
@@ -1043,6 +1051,7 @@
       });
   });
 </script>
+
 
   
 
